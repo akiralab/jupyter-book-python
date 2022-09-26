@@ -1,0 +1,23 @@
+{
+  "name": "python-tips",
+  "version": "1.0.0",
+  "description": "python3 種の神器を使えるレベルに持っていくことを目的とする",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akiralab/python-tips.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akiralab/python-tips/issues"
+  },
+  "homepage": "https://github.com/akiralab/python-tips#readme",
+  "dependencies": {
+    "zenn-cli": "^0.1.105"
+  }
+}
