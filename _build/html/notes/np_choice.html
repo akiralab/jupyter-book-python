@@ -1,0 +1,763 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. [np] choice &#8212; Python Tools Around Machine Learning</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/np_choice.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1. numpy の基本操作" href="np_basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Tools Around Machine Learning</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  python基本ツール
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="np_basics.html">
+   1. numpy の基本操作
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. [np] choice
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notes/np_choice.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/np_choice.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notes/np_choice.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2.1. 概要
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.2. どんな時に便利か
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   2.3. 時間を計測してみる
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>[np] choice</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2.1. 概要
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   2.2. どんな時に便利か
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   2.3. 時間を計測してみる
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="np-choice">
+<h1><span class="section-number">2. </span>[np] choice<a class="headerlink" href="#np-choice" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>概要<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>複数の選択肢からランダムに要素を選択するためのメソッド</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.2. </span>どんな時に便利か<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">chosed_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">number_list</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">chosed_number</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 6])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.3. </span>時間を計測してみる<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_num</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">number_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_num</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">select_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">chosed_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">number_list</span><span class="p">,</span> <span class="n">select_num</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---from total </span><span class="si">{}</span><span class="s1"> choose </span><span class="si">{}</span><span class="s1"> ---&gt; </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">select_num</span><span class="p">,</span> <span class="n">total_num</span><span class="p">,</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---from total 1 choose 10 ---&gt; 3.185 ms
+---from total 2 choose 10 ---&gt; 2.908 ms
+---from total 3 choose 10 ---&gt; 2.298 ms
+---from total 4 choose 10 ---&gt; 2.580 ms
+---from total 5 choose 10 ---&gt; 3.244 ms
+---from total 6 choose 10 ---&gt; 3.441 ms
+---from total 7 choose 10 ---&gt; 2.495 ms
+---from total 8 choose 10 ---&gt; 2.370 ms
+---from total 9 choose 10 ---&gt; 3.060 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_num</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">select_num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">number_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_num</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">select_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">chosed_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">number_list</span><span class="p">,</span> <span class="n">select_num</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---from total </span><span class="si">{}</span><span class="s1"> choose </span><span class="si">{}</span><span class="s1"> ---&gt; </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">select_num</span><span class="p">,</span> <span class="n">total_num</span><span class="p">,</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">))</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---from total 1 choose 100 ---&gt; 2.583 ms
+---from total 2 choose 100 ---&gt; 2.323 ms
+---from total 3 choose 100 ---&gt; 2.580 ms
+---from total 4 choose 100 ---&gt; 2.864 ms
+---from total 5 choose 100 ---&gt; 3.853 ms
+---from total 6 choose 100 ---&gt; 3.065 ms
+---from total 7 choose 100 ---&gt; 2.337 ms
+---from total 8 choose 100 ---&gt; 1.892 ms
+---from total 9 choose 100 ---&gt; 2.952 ms
+---from total 10 choose 100 ---&gt; 3.200 ms
+---from total 11 choose 100 ---&gt; 2.372 ms
+---from total 12 choose 100 ---&gt; 2.651 ms
+---from total 13 choose 100 ---&gt; 3.131 ms
+---from total 14 choose 100 ---&gt; 2.163 ms
+---from total 15 choose 100 ---&gt; 3.075 ms
+---from total 16 choose 100 ---&gt; 5.017 ms
+---from total 17 choose 100 ---&gt; 2.459 ms
+---from total 18 choose 100 ---&gt; 2.060 ms
+---from total 19 choose 100 ---&gt; 1.915 ms
+---from total 20 choose 100 ---&gt; 3.601 ms
+---from total 21 choose 100 ---&gt; 2.320 ms
+---from total 22 choose 100 ---&gt; 1.968 ms
+---from total 23 choose 100 ---&gt; 1.949 ms
+---from total 24 choose 100 ---&gt; 1.951 ms
+---from total 25 choose 100 ---&gt; 1.834 ms
+---from total 26 choose 100 ---&gt; 1.926 ms
+---from total 27 choose 100 ---&gt; 2.016 ms
+---from total 28 choose 100 ---&gt; 1.865 ms
+---from total 29 choose 100 ---&gt; 1.944 ms
+---from total 30 choose 100 ---&gt; 1.840 ms
+---from total 31 choose 100 ---&gt; 2.211 ms
+---from total 32 choose 100 ---&gt; 2.165 ms
+---from total 33 choose 100 ---&gt; 1.810 ms
+---from total 34 choose 100 ---&gt; 2.246 ms
+---from total 35 choose 100 ---&gt; 2.370 ms
+---from total 36 choose 100 ---&gt; 1.938 ms
+---from total 37 choose 100 ---&gt; 1.822 ms
+---from total 38 choose 100 ---&gt; 1.869 ms
+---from total 39 choose 100 ---&gt; 2.311 ms
+---from total 40 choose 100 ---&gt; 1.826 ms
+---from total 41 choose 100 ---&gt; 2.238 ms
+---from total 42 choose 100 ---&gt; 3.295 ms
+---from total 43 choose 100 ---&gt; 2.098 ms
+---from total 44 choose 100 ---&gt; 2.116 ms
+---from total 45 choose 100 ---&gt; 1.906 ms
+---from total 46 choose 100 ---&gt; 2.294 ms
+---from total 47 choose 100 ---&gt; 2.205 ms
+---from total 48 choose 100 ---&gt; 2.476 ms
+---from total 49 choose 100 ---&gt; 1.874 ms
+---from total 50 choose 100 ---&gt; 2.482 ms
+---from total 51 choose 100 ---&gt; 1.883 ms
+---from total 52 choose 100 ---&gt; 2.021 ms
+---from total 53 choose 100 ---&gt; 2.026 ms
+---from total 54 choose 100 ---&gt; 1.951 ms
+---from total 55 choose 100 ---&gt; 3.319 ms
+---from total 56 choose 100 ---&gt; 2.118 ms
+---from total 57 choose 100 ---&gt; 2.111 ms
+---from total 58 choose 100 ---&gt; 2.070 ms
+---from total 59 choose 100 ---&gt; 2.055 ms
+---from total 60 choose 100 ---&gt; 1.869 ms
+---from total 61 choose 100 ---&gt; 1.892 ms
+---from total 62 choose 100 ---&gt; 1.932 ms
+---from total 63 choose 100 ---&gt; 2.109 ms
+---from total 64 choose 100 ---&gt; 1.993 ms
+---from total 65 choose 100 ---&gt; 1.900 ms
+---from total 66 choose 100 ---&gt; 2.231 ms
+---from total 67 choose 100 ---&gt; 1.999 ms
+---from total 68 choose 100 ---&gt; 1.871 ms
+---from total 69 choose 100 ---&gt; 1.878 ms
+---from total 70 choose 100 ---&gt; 2.242 ms
+---from total 71 choose 100 ---&gt; 1.898 ms
+---from total 72 choose 100 ---&gt; 1.888 ms
+---from total 73 choose 100 ---&gt; 1.894 ms
+---from total 74 choose 100 ---&gt; 2.322 ms
+---from total 75 choose 100 ---&gt; 1.897 ms
+---from total 76 choose 100 ---&gt; 1.925 ms
+---from total 77 choose 100 ---&gt; 1.960 ms
+---from total 78 choose 100 ---&gt; 2.420 ms
+---from total 79 choose 100 ---&gt; 2.008 ms
+---from total 80 choose 100 ---&gt; 2.494 ms
+---from total 81 choose 100 ---&gt; 1.977 ms
+---from total 82 choose 100 ---&gt; 2.391 ms
+---from total 83 choose 100 ---&gt; 2.213 ms
+---from total 84 choose 100 ---&gt; 1.923 ms
+---from total 85 choose 100 ---&gt; 1.914 ms
+---from total 86 choose 100 ---&gt; 1.906 ms
+---from total 87 choose 100 ---&gt; 1.884 ms
+---from total 88 choose 100 ---&gt; 2.247 ms
+---from total 89 choose 100 ---&gt; 1.915 ms
+---from total 90 choose 100 ---&gt; 2.046 ms
+---from total 91 choose 100 ---&gt; 1.998 ms
+---from total 92 choose 100 ---&gt; 1.951 ms
+---from total 93 choose 100 ---&gt; 1.845 ms
+---from total 94 choose 100 ---&gt; 1.943 ms
+---from total 95 choose 100 ---&gt; 1.857 ms
+---from total 96 choose 100 ---&gt; 1.926 ms
+---from total 97 choose 100 ---&gt; 1.892 ms
+---from total 98 choose 100 ---&gt; 2.325 ms
+---from total 99 choose 100 ---&gt; 2.967 ms
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_num</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">select_num</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">number_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_num</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">select_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="n">chosed_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">number_list</span><span class="p">,</span> <span class="n">select_num</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---from total </span><span class="si">{}</span><span class="s1"> choose </span><span class="si">{}</span><span class="s1"> ---&gt; </span><span class="si">{:.3f}</span><span class="s1"> ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">select_num</span><span class="p">,</span> <span class="n">total_num</span><span class="p">,</span> <span class="p">(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---from total 1 choose 1000 ---&gt; 26.951 ms
+---from total 2 choose 1000 ---&gt; 30.504 ms
+---from total 3 choose 1000 ---&gt; 20.910 ms
+---from total 4 choose 1000 ---&gt; 20.443 ms
+---from total 5 choose 1000 ---&gt; 19.204 ms
+---from total 6 choose 1000 ---&gt; 21.730 ms
+---from total 7 choose 1000 ---&gt; 21.474 ms
+---from total 8 choose 1000 ---&gt; 20.052 ms
+---from total 9 choose 1000 ---&gt; 19.460 ms
+---from total 10 choose 1000 ---&gt; 19.430 ms
+---from total 11 choose 1000 ---&gt; 19.309 ms
+---from total 12 choose 1000 ---&gt; 24.471 ms
+---from total 13 choose 1000 ---&gt; 19.568 ms
+---from total 14 choose 1000 ---&gt; 20.020 ms
+---from total 15 choose 1000 ---&gt; 19.071 ms
+---from total 16 choose 1000 ---&gt; 19.385 ms
+---from total 17 choose 1000 ---&gt; 18.880 ms
+---from total 18 choose 1000 ---&gt; 21.720 ms
+---from total 19 choose 1000 ---&gt; 20.410 ms
+---from total 20 choose 1000 ---&gt; 21.386 ms
+---from total 21 choose 1000 ---&gt; 22.289 ms
+---from total 22 choose 1000 ---&gt; 20.879 ms
+---from total 23 choose 1000 ---&gt; 19.650 ms
+---from total 24 choose 1000 ---&gt; 20.058 ms
+---from total 25 choose 1000 ---&gt; 19.128 ms
+---from total 26 choose 1000 ---&gt; 18.317 ms
+---from total 27 choose 1000 ---&gt; 20.095 ms
+---from total 28 choose 1000 ---&gt; 19.538 ms
+---from total 29 choose 1000 ---&gt; 19.083 ms
+---from total 30 choose 1000 ---&gt; 19.136 ms
+---from total 31 choose 1000 ---&gt; 19.071 ms
+---from total 32 choose 1000 ---&gt; 19.408 ms
+---from total 33 choose 1000 ---&gt; 18.780 ms
+---from total 34 choose 1000 ---&gt; 18.383 ms
+---from total 35 choose 1000 ---&gt; 21.578 ms
+---from total 36 choose 1000 ---&gt; 20.500 ms
+---from total 37 choose 1000 ---&gt; 19.667 ms
+---from total 38 choose 1000 ---&gt; 20.312 ms
+---from total 39 choose 1000 ---&gt; 19.871 ms
+---from total 40 choose 1000 ---&gt; 19.086 ms
+---from total 41 choose 1000 ---&gt; 19.061 ms
+---from total 42 choose 1000 ---&gt; 19.691 ms
+---from total 43 choose 1000 ---&gt; 19.260 ms
+---from total 44 choose 1000 ---&gt; 18.534 ms
+---from total 45 choose 1000 ---&gt; 20.836 ms
+---from total 46 choose 1000 ---&gt; 20.160 ms
+---from total 47 choose 1000 ---&gt; 19.889 ms
+---from total 48 choose 1000 ---&gt; 19.006 ms
+---from total 49 choose 1000 ---&gt; 19.985 ms
+---from total 50 choose 1000 ---&gt; 20.828 ms
+---from total 51 choose 1000 ---&gt; 20.797 ms
+---from total 52 choose 1000 ---&gt; 20.640 ms
+---from total 53 choose 1000 ---&gt; 20.125 ms
+---from total 54 choose 1000 ---&gt; 20.409 ms
+---from total 55 choose 1000 ---&gt; 20.720 ms
+---from total 56 choose 1000 ---&gt; 21.009 ms
+---from total 57 choose 1000 ---&gt; 21.687 ms
+---from total 58 choose 1000 ---&gt; 21.742 ms
+---from total 59 choose 1000 ---&gt; 20.734 ms
+---from total 60 choose 1000 ---&gt; 22.269 ms
+---from total 61 choose 1000 ---&gt; 22.095 ms
+---from total 62 choose 1000 ---&gt; 19.890 ms
+---from total 63 choose 1000 ---&gt; 21.765 ms
+---from total 64 choose 1000 ---&gt; 20.380 ms
+---from total 65 choose 1000 ---&gt; 21.050 ms
+---from total 66 choose 1000 ---&gt; 20.623 ms
+---from total 67 choose 1000 ---&gt; 19.044 ms
+---from total 68 choose 1000 ---&gt; 20.258 ms
+---from total 69 choose 1000 ---&gt; 21.168 ms
+---from total 70 choose 1000 ---&gt; 19.273 ms
+---from total 71 choose 1000 ---&gt; 20.810 ms
+---from total 72 choose 1000 ---&gt; 20.008 ms
+---from total 73 choose 1000 ---&gt; 20.561 ms
+---from total 74 choose 1000 ---&gt; 19.957 ms
+---from total 75 choose 1000 ---&gt; 18.675 ms
+---from total 76 choose 1000 ---&gt; 20.193 ms
+---from total 77 choose 1000 ---&gt; 19.257 ms
+---from total 78 choose 1000 ---&gt; 19.336 ms
+---from total 79 choose 1000 ---&gt; 20.190 ms
+---from total 80 choose 1000 ---&gt; 21.808 ms
+---from total 81 choose 1000 ---&gt; 21.519 ms
+---from total 82 choose 1000 ---&gt; 20.689 ms
+---from total 83 choose 1000 ---&gt; 19.589 ms
+---from total 84 choose 1000 ---&gt; 19.442 ms
+---from total 85 choose 1000 ---&gt; 20.872 ms
+---from total 86 choose 1000 ---&gt; 21.479 ms
+---from total 87 choose 1000 ---&gt; 22.167 ms
+---from total 88 choose 1000 ---&gt; 21.428 ms
+---from total 89 choose 1000 ---&gt; 22.161 ms
+---from total 90 choose 1000 ---&gt; 20.872 ms
+---from total 91 choose 1000 ---&gt; 21.109 ms
+---from total 92 choose 1000 ---&gt; 21.077 ms
+---from total 93 choose 1000 ---&gt; 23.273 ms
+---from total 94 choose 1000 ---&gt; 21.448 ms
+---from total 95 choose 1000 ---&gt; 20.666 ms
+---from total 96 choose 1000 ---&gt; 20.571 ms
+---from total 97 choose 1000 ---&gt; 20.434 ms
+---from total 98 choose 1000 ---&gt; 20.753 ms
+---from total 99 choose 1000 ---&gt; 22.022 ms
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="np_basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1. </span>numpy の基本操作</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Jupyter Book Community<br/>
+  
+      &copy; Copyright 2023 akiralab.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

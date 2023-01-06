@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+- caption: python基本ツール
+  numbered: true
+  chapters:
+    - file: notes/np_basics
+    - file: notes/np_choice
+    
