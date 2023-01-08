@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/numpy/np_basics.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. [np] choice" href="np_choice.html" />
+    <link rel="next" title="2. ランダム要素を取得する" href="np_random.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -113,8 +113,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="np_choice.html">
-   2. [np] choice
+  <a class="reference internal" href="np_random.html">
+   2. ランダム要素を取得する
   </a>
  </li>
 </ul>
@@ -324,38 +324,53 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   1.1. 基本的な作成方法
+  <a class="reference internal nav-link" href="#np-array">
+   1.1. 要素を直接指定して配列を作成する（np.array）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#np-zeros">
+   1.2. 要素がゼロの配列を作成する（np.zeros）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#np-array">
-     1.1.1. 1. 要素を直接指定して配列を作成する（np.array）
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#np-zeros">
-     1.1.2. 2. 要素がゼロの配列を作成する（np.zeros）
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-ones">
-     1.1.3. 3. 要素が1の配列を作成する（np.ones）
+     1.2.1. 要素が1の配列を作成する（np.ones）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-empty">
-     1.1.4. 4. 要素が空の配列を作成する（np.empty）
+     1.2.2. 要素が空の配列を作成する（np.empty）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-full">
-     1.1.5. 5. 要素を一意の数値に指定して作成する（np.full）
+     1.2.3. 要素を一意の数値に指定して作成する（np.full）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-arange">
-     1.1.6. 6. 順列要素として作成する（np.arange）
+     1.2.4. 順列要素として作成する（np.arange）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-linspace">
+     1.2.5. 順列を作成する（np.linspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-logspace">
+     1.2.6. 指数ベースでの順列を作成する（np.logspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-geomspace">
+     1.2.7. 対数スケール（幾何級数）で等間隔に並んだ数字を返す（np.geomspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-np-random">
+     1.2.8. 要素がrandomの配列を作成する（np.random）
     </a>
    </li>
   </ul>
@@ -380,38 +395,53 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   1.1. 基本的な作成方法
+  <a class="reference internal nav-link" href="#np-array">
+   1.1. 要素を直接指定して配列を作成する（np.array）
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#np-zeros">
+   1.2. 要素がゼロの配列を作成する（np.zeros）
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#np-array">
-     1.1.1. 1. 要素を直接指定して配列を作成する（np.array）
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#np-zeros">
-     1.1.2. 2. 要素がゼロの配列を作成する（np.zeros）
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-ones">
-     1.1.3. 3. 要素が1の配列を作成する（np.ones）
+     1.2.1. 要素が1の配列を作成する（np.ones）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-empty">
-     1.1.4. 4. 要素が空の配列を作成する（np.empty）
+     1.2.2. 要素が空の配列を作成する（np.empty）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-full">
-     1.1.5. 5. 要素を一意の数値に指定して作成する（np.full）
+     1.2.3. 要素を一意の数値に指定して作成する（np.full）
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#np-arange">
-     1.1.6. 6. 順列要素として作成する（np.arange）
+     1.2.4. 順列要素として作成する（np.arange）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-linspace">
+     1.2.5. 順列を作成する（np.linspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-logspace">
+     1.2.6. 指数ベースでの順列を作成する（np.logspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-geomspace">
+     1.2.7. 対数スケール（幾何級数）で等間隔に並んだ数字を返す（np.geomspace）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-np-random">
+     1.2.8. 要素がrandomの配列を作成する（np.random）
     </a>
    </li>
   </ul>
@@ -435,50 +465,38 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="id1">
-<h2><span class="section-number">1.1. </span>基本的な作成方法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<ol class="simple">
-<li><p>要素を直接指定して配列を作成する（np.array）</p></li>
-<li><p>要素がゼロの配列を作成する（np.zeros）</p></li>
-<li><p>要素が1の配列を作成する（np.ones）</p></li>
-<li><p>要素が空の配列を作成する（np.empty）</p></li>
-<li><p>要素を一意の数値に指定して作成する（np.full）</p></li>
-<li><p>順列要素として作成する（np.arange）</p></li>
-</ol>
 <section id="np-array">
-<h3><span class="section-number">1.1.1. </span>1. 要素を直接指定して配列を作成する（np.array）<a class="headerlink" href="#np-array" title="Permalink to this headline">#</a></h3>
+<h2><span class="section-number">1.1. </span>要素を直接指定して配列を作成する（np.array）<a class="headerlink" href="#np-array" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
-
-<span class="c1"># 配列の情報を取得する</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;array: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a.shape: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a.size: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a.sum: &#39;</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 
 <span class="c1"># 関数化</span>
 <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;array: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;size: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>    
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sum: &#39;</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+    
+<span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [[1 2 3]
  [4 5 6]]
-a.shape:  (2, 3)
-a.size:  6
-a.sum:  21
+shape:  (2, 3)
+size:  6
+mean:  3.5
+sum:  21
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="np-zeros">
-<h3><span class="section-number">1.1.2. </span>2. 要素がゼロの配列を作成する（np.zeros）<a class="headerlink" href="#np-zeros" title="Permalink to this headline">#</a></h3>
+<h2><span class="section-number">1.2. </span>要素がゼロの配列を作成する（np.zeros）<a class="headerlink" href="#np-zeros" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -490,14 +508,14 @@ a.sum:  21
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [0. 0. 0. 0.]
 shape:  (4,)
 size:  4
+mean:  0.0
 sum:  0.0
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 <section id="np-ones">
-<h3><span class="section-number">1.1.3. </span>3. 要素が1の配列を作成する（np.ones）<a class="headerlink" href="#np-ones" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.1. </span>要素が1の配列を作成する（np.ones）<a class="headerlink" href="#np-ones" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -509,6 +527,7 @@ sum:  0.0
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [1. 1. 1. 1.]
 shape:  (4,)
 size:  4
+mean:  1.0
 sum:  4.0
 </pre></div>
 </div>
@@ -516,7 +535,7 @@ sum:  4.0
 </div>
 </section>
 <section id="np-empty">
-<h3><span class="section-number">1.1.4. </span>4. 要素が空の配列を作成する（np.empty）<a class="headerlink" href="#np-empty" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.2. </span>要素が空の配列を作成する（np.empty）<a class="headerlink" href="#np-empty" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
@@ -525,17 +544,18 @@ sum:  4.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [0. 0. 0. 0.]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [1. 1. 1. 1.]
 shape:  (4,)
 size:  4
-sum:  0.0
+mean:  1.0
+sum:  4.0
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="np-full">
-<h3><span class="section-number">1.1.5. </span>5. 要素を一意の数値に指定して作成する（np.full）<a class="headerlink" href="#np-full" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.3. </span>要素を一意の数値に指定して作成する（np.full）<a class="headerlink" href="#np-full" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="mi">10</span><span class="p">)</span>
@@ -551,6 +571,7 @@ sum:  0.0
  [10 10 10 10]]
 shape:  (5, 4)
 size:  20
+mean:  10.0
 sum:  200
 </pre></div>
 </div>
@@ -558,7 +579,7 @@ sum:  200
 </div>
 </section>
 <section id="np-arange">
-<h3><span class="section-number">1.1.6. </span>6. 順列要素として作成する（np.arange）<a class="headerlink" href="#np-arange" title="Permalink to this headline">#</a></h3>
+<h3><span class="section-number">1.2.4. </span>順列要素として作成する（np.arange）<a class="headerlink" href="#np-arange" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -570,6 +591,7 @@ sum:  200
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [0 1 2 3 4 5 6 7 8 9]
 shape:  (10,)
 size:  10
+mean:  4.5
 sum:  45
 </pre></div>
 </div>
@@ -587,7 +609,88 @@ sum:  45
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [10 12 14 16 18]
 shape:  (5,)
 size:  5
+mean:  14.0
 sum:  70
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="np-linspace">
+<h3><span class="section-number">1.2.5. </span>順列を作成する（np.linspace）<a class="headerlink" href="#np-linspace" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>np.arangeとは異なり、配列の要素数を指定することができる</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="np-logspace">
+<h3><span class="section-number">1.2.6. </span>指数ベースでの順列を作成する（np.logspace）<a class="headerlink" href="#np-logspace" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>指数ベースでの配列作成（基数は10がデフォルト）</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10^1から始まり、10^4で終わる配列を作成。要素数は4</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [   10.   100.  1000. 10000.]
+shape:  (4,)
+size:  4
+mean:  2777.5
+sum:  11110.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="np-geomspace">
+<h3><span class="section-number">1.2.7. </span>対数スケール（幾何級数）で等間隔に並んだ数字を返す（np.geomspace）<a class="headerlink" href="#np-geomspace" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [   1.   10.  100. 1000.]
+shape:  (4,)
+size:  4
+mean:  277.75
+sum:  1111.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="random-np-random">
+<h3><span class="section-number">1.2.8. </span>要素がrandomの配列を作成する（np.random）<a class="headerlink" href="#random-np-random" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">info</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array:  [[0.7508038  0.65862125 0.26007837 0.8565904 ]
+ [0.49285927 0.97450707 0.42321856 0.82244596]
+ [0.43644984 0.17597482 0.00689489 0.28943564]]
+shape:  (3, 4)
+size:  12
+mean:  0.5123233227838125
+sum:  6.147879873405751
 </pre></div>
 </div>
 </div>
@@ -630,10 +733,10 @@ sum:  70
             <p class="prev-next-title">Welcome to your Jupyter Book</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="np_choice.html" title="next page">
+    <a class='right-next' id="next-link" href="np_random.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>[np] choice</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>ランダム要素を取得する</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
