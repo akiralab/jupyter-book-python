@@ -8,6 +8,6 @@ parts:
 - caption: python基本ツール
   numbered: true
   chapters:
-    - file: notes/np_basics
-    - file: notes/np_choice
+    - file: numpy/np_basics
+    - file: numpy/np_choice
     
