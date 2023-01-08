@@ -9,5 +9,5 @@ parts:
   numbered: true
   chapters:
     - file: numpy/np_basics
-    - file: numpy/np_choice
+    - file: numpy/np_random
     
