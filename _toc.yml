@@ -5,9 +5,13 @@ format: jb-book
 root: intro
 
 parts:
-- caption: python基本ツール
+- caption: Numpyをちゃんと理解する
   numbered: true
   chapters:
     - file: numpy/np_basics
     - file: numpy/np_random
+- caption: Pandasをちゃんと理解する
+  numbered: true
+  chapters:
+    - file: pandas/np_basics
     
