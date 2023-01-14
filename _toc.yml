@@ -19,4 +19,6 @@ parts:
   numbered: true
   chapters:
     - file: notes/timm
+    - file: notes/youtube_dl
+    - file: notes/python
     
