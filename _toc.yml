@@ -21,4 +21,5 @@ parts:
     - file: notes/timm
     - file: notes/youtube_dl
     - file: notes/python
+    - file: notes/salary
     
