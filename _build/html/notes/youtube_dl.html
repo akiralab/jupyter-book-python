@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../pandas/pd_basics.html">
+  <a class="reference internal" href="../pandas/pd_basic.html">
    3. pandasでEDA(1)
   </a>
  </li>
@@ -144,6 +144,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="python.html">
    7. 文字列操作
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="salary.html">
+   8. matplotlibを用いて住民税を計算する
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter_book.html">
+   10. jupyter bookでできること
   </a>
  </li>
 </ul>
@@ -381,7 +391,32 @@ title="Print to PDF"
                 
               <div>
                 
-  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># youtube_dl</span>
+<span class="o">-</span> <span class="n">youtube上の動画をDLするためのツール</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install youtube_dl
+<span class="kn">import</span> <span class="nn">youtube_dl</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting youtube_dl
+  Downloading youtube_dl-2021.12.17-py2.py3-none-any.whl (1.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.9/1.9 MB</span> <span class=" -Color -Color-Red">13.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>a <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hInstalling collected packages: youtube_dl
+Successfully installed youtube_dl-2021.12.17
+</pre></div>
+</div>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,

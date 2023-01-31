@@ -39,8 +39,3 @@ noteを書く場合はこのように記述する
     import numpy as np
     print(np.arange(10))
 ```
-
-```python
-
-
-```

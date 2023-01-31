@@ -8,14 +8,12 @@ parts:
 - caption: Numpyをちゃんと理解する
   numbered: true
   chapters:
-    - file: numpy/np_intro  
-    section:
     - file: numpy/np_basics
     - file: numpy/np_random
 - caption: Pandasをちゃんと理解する
   numbered: true
   chapters:
-    - file: pandas/pd_basics
+    - file: pandas/pd_basic
     
 - caption: 興味深いLibrary
   numbered: true
@@ -24,5 +22,5 @@ parts:
     - file: notes/youtube_dl
     - file: notes/python
     - file: notes/salary
-    - file: notes/jupyter_book
+    - file: notes/jupyter_book.md
     
