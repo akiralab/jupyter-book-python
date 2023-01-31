@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>7. 文字列操作 &#8212; Python Tools Around Machine Learning</title>
+    <title>8. matplotlibを用いて住民税を計算する &#8212; Python Tools Around Machine Learning</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/python.html" />
+    <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/salary.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. matplotlibを用いて住民税を計算する" href="salary.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="youtube_dl.html" />
+    <link rel="next" title="10. jupyter bookでできること" href="jupyter_book.html" />
+    <link rel="prev" title="7. 文字列操作" href="python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -141,13 +141,13 @@ const thebe_selector_output = ".output, .cell_output"
    4. timmとは
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
    7. 文字列操作
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="salary.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    8. matplotlibを用いて住民税を計算する
   </a>
  </li>
@@ -215,7 +215,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notes/python.ipynb"
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notes/salary.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -275,7 +275,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/python.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/salary.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -303,7 +303,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/python.ipynb"
+        <a href="../_sources/notes/salary.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -340,23 +340,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   8. matplotlibを用いて住民税を計算する
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   9. 住民税の計算方法
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>文字列操作</h1>
+                <h1>matplotlibを用いて住民税を計算する</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   8. matplotlibを用いて住民税を計算する
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   9. 住民税の計算方法
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -364,33 +411,88 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">7. </span>文字列操作<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+  <section id="matplotlib">
+<h1><span class="section-number">8. </span>matplotlibを用いて住民税を計算する<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h1>
+</section>
+<section id="id1">
+<h1><span class="section-number">9. </span>住民税の計算方法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<ol class="simple">
+<li><p>合計所得金額－損失の繰越控除＝総所得金額</p></li>
+<li><p>総所得金額－所得控除額の合計＝課税所得額</p></li>
+<li><p>課税所得額×税率（10％）＝税額控除前の所得割額</p></li>
+<li><p>税額控除前の所得割額－税額控除の額＝税額控除後の所得割額</p></li>
+<li><p>税額控除後の所得割額＋均等割額＝住民税の額</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;テキスト&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">japanize_matplotlib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_whole</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># 給与控除額</span>
+<span class="n">income_deduction</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">income_taxable</span> <span class="o">=</span> <span class="n">income_whole</span> <span class="o">-</span> <span class="n">income_deduction</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">給与所得控除計算</span><span class="p">(</span><span class="n">income_whole</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        (参考)：https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm</span>
+<span class="sd">        *関数名を英語もしくはローマ字にすると可読性が悪くなると思いあえて感じにした</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">if</span> <span class="n">income_whole</span> <span class="o">&lt;=</span> <span class="mf">162.5</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="mi">55</span>
+    <span class="k">elif</span> <span class="n">income_whole</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="n">income_whole</span> <span class="o">*</span> <span class="mf">0.40</span> <span class="o">-</span> <span class="mi">10</span>
+    <span class="k">elif</span> <span class="n">income_whole</span> <span class="o">&lt;=</span> <span class="mi">360</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="n">income_whole</span> <span class="o">*</span> <span class="mf">0.30</span> <span class="o">+</span> <span class="mi">8</span>
+    <span class="k">elif</span> <span class="n">income_whole</span> <span class="o">&lt;=</span> <span class="mi">660</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="n">income_whole</span> <span class="o">*</span> <span class="mf">0.20</span> <span class="o">+</span> <span class="mi">44</span>
+    <span class="k">elif</span> <span class="n">income_whole</span> <span class="o">&lt;=</span> <span class="mi">850</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="n">income_whole</span> <span class="o">*</span> <span class="mf">0.10</span> <span class="o">+</span> <span class="mi">110</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">income_deduction</span> <span class="o">=</span> <span class="mi">195</span>
+    
+    <span class="k">return</span> <span class="n">income_deduction</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_whole</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+
+<span class="n">income_deduction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">給与所得控除計算</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">income_whole</span><span class="p">])</span>
+<span class="n">income_deduction_rate</span> <span class="o">=</span> <span class="n">income_deduction</span> <span class="o">/</span> <span class="n">income_whole</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;総所得と給与所得控除額の関係&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">income_whole</span><span class="p">,</span> <span class="n">income_deduction</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">income_whole</span><span class="p">,</span> <span class="n">income_deduction_rate</span><span class="p">,</span> <span class="s1">&#39;b--&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;総収入額（万円）&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;給与控除額（万円）&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;総収入に占める給与控除額の割合, %&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>テキスト
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;テキスト</span><span class="se">\n</span><span class="s1">テキスト&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>テキスト
-テキスト
-</pre></div>
-</div>
+<img alt="../_images/salary_5_0.png" src="../_images/salary_5_0.png" />
 </div>
 </div>
 </section>
@@ -422,17 +524,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="youtube_dl.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title"><span class="section-number">7. </span>文字列操作</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="salary.html" title="next page">
+    <a class='right-next' id="next-link" href="jupyter_book.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>matplotlibを用いて住民税を計算する</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>jupyter bookでできること</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>7. 文字列操作 &#8212; Python Tools Around Machine Learning</title>
+    <title>10. jupyter bookでできること &#8212; Python Tools Around Machine Learning</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/python.html" />
+    <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/jupyter_book.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. matplotlibを用いて住民税を計算する" href="salary.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="youtube_dl.html" />
+    <link rel="prev" title="8. matplotlibを用いて住民税を計算する" href="salary.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -141,8 +140,8 @@ const thebe_selector_output = ".output, .cell_output"
    4. timmとは
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
    7. 文字列操作
   </a>
  </li>
@@ -151,8 +150,8 @@ const thebe_selector_output = ".output, .cell_output"
    8. matplotlibを用いて住民税を計算する
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jupyter_book.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    10. jupyter bookでできること
   </a>
  </li>
@@ -207,35 +206,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notes/python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -275,7 +245,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/python.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/jupyter_book.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -303,7 +273,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/python.ipynb"
+        <a href="../_sources/notes/jupyter_book.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -314,7 +284,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -340,23 +310,98 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   10. jupyter bookでできること
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#myst-or-markedly-structured-text">
+   11. MyST (or Markedly Structured Text)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#block">
+     11.1. Blockを記述する
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#note">
+       11.1.1. noteを記述する
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>文字列操作</h1>
+                <h1>jupyter bookでできること</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   10. jupyter bookでできること
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#myst-or-markedly-structured-text">
+   11. MyST (or Markedly Structured Text)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#block">
+     11.1. Blockを記述する
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#note">
+       11.1.1. noteを記述する
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -364,35 +409,44 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1><span class="section-number">7. </span>文字列操作<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;テキスト&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book">
+<h1><span class="section-number">10. </span>jupyter bookでできること<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="myst-or-markedly-structured-text">
+<h1><span class="section-number">11. </span>MyST (or Markedly Structured Text)<a class="headerlink" href="#myst-or-markedly-structured-text" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://jupyterbook.org/en/stable/content/myst.html">MyST Markdown overview</a></p>
+<section id="block">
+<h2><span class="section-number">11.1. </span>Blockを記述する<a class="headerlink" href="#block" title="Permalink to this headline">#</a></h2>
+<section id="note">
+<h3><span class="section-number">11.1.1. </span>noteを記述する<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h3>
+<p>記述方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    ```{note}
+    noteを書く場合はこのように記述する
+    ```
 </pre></div>
 </div>
+<p>記述結果</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>noteを書く場合はこのように記述する</p>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>テキスト
+<ul class="simple">
+<li><p>codeを記述する</p></li>
+</ul>
+<p>記述方法</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    ```{code-block} python
+        import numpy as np
+        print(np.arange(10))
+    ```
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">txt</span> <span class="o">=</span> <span class="s1">&#39;テキスト</span><span class="se">\n</span><span class="s1">テキスト&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+<p>記述結果</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>テキスト
-テキスト
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -422,19 +476,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="youtube_dl.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="salary.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">&lt;no title&gt;</p>
+            <p class="prev-next-title"><span class="section-number">8. </span>matplotlibを用いて住民税を計算する</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="salary.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>matplotlibを用いて住民税を計算する</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
