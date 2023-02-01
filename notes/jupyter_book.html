@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>10. jupyter bookでできること &#8212; Python Tools Around Machine Learning</title>
+    <title>10. MySTを用いてmarkdownを記述する方法 &#8212; Python Tools Around Machine Learning</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/notes/jupyter_book.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -152,7 +154,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. jupyter bookでできること
+   10. MySTを用いてmarkdownを記述する方法
   </a>
  </li>
 </ul>
@@ -206,6 +208,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/notes/jupyter_book.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -273,6 +304,23 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
+        <a href="../_sources/notes/jupyter_book.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
         <a href="../_sources/notes/jupyter_book.md"
    class="headerbtn"
    data-toggle="tooltip"
@@ -332,27 +380,62 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   10. jupyter bookでできること
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupytextjupyter-lab">
+   10.1. 事前準備：jupytextを使ってjupyter lab上でプレビュー表示できるようにする
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#myst-or-markedly-structured-text">
-   11. MyST (or Markedly Structured Text)
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   10.2. 基本文法
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#block">
-     11.1. Blockを記述する
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#header">
+     10.2.1. Headerを指定する
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#note">
-       11.1.1. noteを記述する
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     10.2.2. 引用分を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     10.2.3. 分離線を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     10.2.4. コメントを記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html">
+     10.2.5. HTML要素を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table">
+     10.2.6. Tableを記述する
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#block">
+   10.3. Blockを記述する
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#admonition">
+     10.3.1. admonition (意：勧告)を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note">
+     10.3.2. noteを記述する
+    </a>
    </li>
   </ul>
  </li>
@@ -365,7 +448,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>jupyter bookでできること</h1>
+                <h1>MySTを用いてmarkdownを記述する方法</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -375,27 +458,62 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   10. jupyter bookでできること
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupytextjupyter-lab">
+   10.1. 事前準備：jupytextを使ってjupyter lab上でプレビュー表示できるようにする
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#myst-or-markedly-structured-text">
-   11. MyST (or Markedly Structured Text)
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   10.2. 基本文法
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#block">
-     11.1. Blockを記述する
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#header">
+     10.2.1. Headerを指定する
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#note">
-       11.1.1. noteを記述する
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     10.2.2. 引用分を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     10.2.3. 分離線を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     10.2.4. コメントを記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html">
+     10.2.5. HTML要素を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table">
+     10.2.6. Tableを記述する
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#block">
+   10.3. Blockを記述する
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#admonition">
+     10.3.1. admonition (意：勧告)を記述する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note">
+     10.3.2. noteを記述する
+    </a>
    </li>
   </ul>
  </li>
@@ -409,42 +527,457 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book">
-<h1><span class="section-number">10. </span>jupyter bookでできること<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="myst-or-markedly-structured-text">
-<h1><span class="section-number">11. </span>MyST (or Markedly Structured Text)<a class="headerlink" href="#myst-or-markedly-structured-text" title="Permalink to this headline">#</a></h1>
-<p><a class="reference external" href="https://jupyterbook.org/en/stable/content/myst.html">MyST Markdown overview</a></p>
-<section id="block">
-<h2><span class="section-number">11.1. </span>Blockを記述する<a class="headerlink" href="#block" title="Permalink to this headline">#</a></h2>
-<section id="note">
-<h3><span class="section-number">11.1.1. </span>noteを記述する<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h3>
-<p>記述方法</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    ```{note}
-    noteを書く場合はこのように記述する
-    ```
+  <section class="tex2jax_ignore mathjax_ignore" id="mystmarkdown">
+<h1><span class="section-number">10. </span>MySTを用いてmarkdownを記述する方法<a class="headerlink" href="#mystmarkdown" title="Permalink to this headline">#</a></h1>
+<section id="jupytextjupyter-lab">
+<h2><span class="section-number">10.1. </span>事前準備：jupytextを使ってjupyter lab上でプレビュー表示できるようにする<a class="headerlink" href="#jupytextjupyter-lab" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">jupytext</a>にjupytextを有効にするための方法が記載されている.
+jupytextを有効にすると、以下のようにmarkdown編集結果がliveで確認できる.</p>
+<a class="bg-primary reference internal image-reference" href="../_images/jupytext-preview.gif"><img alt="fishy" class="bg-primary align-center" src="../_images/jupytext-preview.gif" style="width: 500px;" /></a>
+<ol class="simple">
+<li><p>jupytextをpip installする</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># bash</span>
+pip<span class="w"> </span>install<span class="w"> </span>jupytext
 </pre></div>
 </div>
-<p>記述結果</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>noteを書く場合はこのように記述する</p>
+<ol class="simple">
+<li><p>jupyterlabのsetting -&gt; DocumentManagerのjsonに以下を追加する</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;defaultViewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;markdown&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;myst&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;r-markdown&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;quarto&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;julia&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;python&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;r&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jupytext Notebook&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
+<ol class="simple">
+<li><p>jupyter labを再起動する</p></li>
+<li><p>mdファイルをを「Jupytext Notebookで開く」を選択する</p></li>
+</ol>
+<a class="bg-primary reference internal image-reference" href="../_images/jupytext-notebook-select.png"><img alt="" class="bg-primary align-center" src="../_images/jupytext-notebook-select.png" style="width: 500px;" /></a>
+<p><strong>参考</strong></p>
 <ul class="simple">
-<li><p>codeを記述する</p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/content/myst.html">MyST Markdown overview</a></p></li>
+<li><p><a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">jupytext</a></p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org/en/stable/reference/cheatsheet.html">https://jupyterbook.org/en/stable/reference/cheatsheet.html</a></p></li>
 </ul>
+</section>
+<section id="id1">
+<h2><span class="section-number">10.2. </span>基本文法<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<section id="header">
+<h3><span class="section-number">10.2.1. </span>Headerを指定する<a class="headerlink" href="#header" title="Permalink to this headline">#</a></h3>
+<p>このように記述すると、Headerを記述できる</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Heading level 1</span>
+<span class="c1">## Heading level 2</span>
+<span class="c1">### Heading level 3</span>
+<span class="c1">#### Heading level 4</span>
+<span class="c1">##### Heading level 5</span>
+<span class="c1">###### Heading level 6</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">10.2.2. </span>引用分を記述する<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>記述方法</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    ```{code-block} python
-        import numpy as np
-        print(np.arange(10))
-    ```
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">引用文</span>
+</pre></div>
+</div>
+<p>実行結果</p>
+<blockquote>
+<div><p>引用文</p>
+</div></blockquote>
+</section>
+<section id="id3">
+<h3><span class="section-number">10.2.3. </span>分離線を記述する<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>記述方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+</pre></div>
+</div>
+<p>実行結果</p>
+</section>
+<hr class="docutils" />
+<section id="id4">
+<h3><span class="section-number">10.2.4. </span>コメントを記述する<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<p>記述方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">この行に記載された文章はpreviewでは表示される</span>
+<span class="o">%</span> <span class="n">この行に記載された文章はpreviewでは表示されない</span>
+</pre></div>
+</div>
+<p>実行結果</p>
+<p>この行に記載された文章はpreviewでは表示される</p>
+<!-- #region -->
+</section>
+<section id="html">
+<h3><span class="section-number">10.2.5. </span>HTML要素を記述する<a class="headerlink" href="#html" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;これはHTMLですが、markdownのpreview時には適切にrenderされます&lt;/p&gt;
+</pre></div>
+</div>
+<p>これはHTMLですが、markdownのpreview時には適切にrenderされます</p>
+<!-- #endregion -->
+<!-- #region -->
+</section>
+<section id="table">
+<h3><span class="section-number">10.2.6. </span>Tableを記述する<a class="headerlink" href="#table" title="Permalink to this headline">#</a></h3>
+<p>markdownにおいて一般的に表はこのように記述することが多い</p>
+<p>記述方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">a</span>    <span class="o">|</span> <span class="n">b</span>    <span class="o">|</span>
+<span class="o">|</span> <span class="p">:</span><span class="o">---</span> <span class="o">|</span> <span class="o">---</span><span class="p">:</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">c</span>    <span class="o">|</span> <span class="n">d</span>    <span class="o">|</span>
 </pre></div>
 </div>
 <p>記述結果</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>a</p></th>
+<th class="text-align:right head"><p>b</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>c</p></td>
+<td class="text-align:right"><p>d</p></td>
+</tr>
+</tbody>
+</table>
+<p>このように1行で表の内容を記述することもできる</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{list-table}
+:header-rows: 1
+
+* - カラム名1
+  - カラム名2
+  - カラム名3
+* - 1行目のカラム名1の要素
+  - 1行目のカラム名2の要素
+  - 1行目のカラム名3の要素
+* - 2行目のカラム名1の要素
+  - 2行目のカラム名2の要素
+  - 2行目のカラム名3の要素
+* - 3行目のカラム名1の要素
+  - 3行目のカラム名2の要素
+  - 3行目のカラム名3の要素
+* - 4行目のカラム名1の要素
+  - 4行目のカラム名2の要素
+  - 4行目のカラム名3の要素
+```
+</pre></div>
+</div>
+<p>実行結果</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>カラム名1</p></th>
+<th class="head"><p>カラム名2</p></th>
+<th class="head"><p>カラム名3</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1行目のカラム名1の要素</p></td>
+<td><p>1行目のカラム名2の要素</p></td>
+<td><p>1行目のカラム名3の要素</p></td>
+</tr>
+<tr class="row-odd"><td><p>2行目のカラム名1の要素</p></td>
+<td><p>2行目のカラム名2の要素</p></td>
+<td><p>2行目のカラム名3の要素</p></td>
+</tr>
+<tr class="row-even"><td><p>3行目のカラム名1の要素</p></td>
+<td><p>3行目のカラム名2の要素</p></td>
+<td><p>3行目のカラム名3の要素</p></td>
+</tr>
+<tr class="row-odd"><td><p>4行目のカラム名1の要素</p></td>
+<td><p>4行目のカラム名2の要素</p></td>
+<td><p>4行目のカラム名3の要素</p></td>
+</tr>
+</tbody>
+</table>
+<!-- #endregion -->
+</section>
+</section>
+<section id="block">
+<h2><span class="section-number">10.3. </span>Blockを記述する<a class="headerlink" href="#block" title="Permalink to this headline">#</a></h2>
+<section id="admonition">
+<h3><span class="section-number">10.3.1. </span>admonition (意：勧告)を記述する<a class="headerlink" href="#admonition" title="Permalink to this headline">#</a></h3>
+<p>記述方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} admonition(タイトルは自由に決められる)
+admonitionを書く場合はこのように記述する
+```
+</pre></div>
+</div>
+<p>記述結果</p>
+<div class="admonition-admonition admonition">
+<p class="admonition-title">admonition(タイトルは自由に決められる)</p>
+<p>admonitionを書く場合はこのように記述する</p>
+</div>
+<div class="highlight-{note}noteを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{note}noteを書く場合はこのように記述する
+```
+
+
+### warningを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{warning}warningを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{warning}warningを書く場合はこのように記述する
+```
+
+
+
+### Cautionを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>cautionを書く場合はこのように記述する</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{caution}
+cautionを書く場合はこのように記述する
+```
+
+
+### Attentionを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>attentionを書く場合はこのように記述する</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{attention}
+attentionを書く場合はこのように記述する
+```
+
+
+### Tipを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{tip}tipを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{tip}tipを書く場合はこのように記述する
+```
+
+
+
+### Dangerを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{danger}dangerを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{danger}dangerを書く場合はこのように記述する
+```
+
+
+
+### Errorを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{error}errorを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{error}errorを書く場合はこのように記述する
+```
+
+
+
+### Hintを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{hint}hintを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{hint}hintを書く場合はこのように記述する
+```
+
+
+
+### Importantを記述する
+
+記述方法
+</pre></div>
+</div>
+<div class="highlight-{important}importantを書く場合はこのように記述する notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{important}importantを書く場合はこのように記述する
+```
+
+
+
+## Codeを記述する
+
+&lt;!-- #region --&gt;
+### ブロックとしてCodeを記述する
+
+記述方法
+
+</pre></div>
+</div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>{code-block}を省略することもできる</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{code-block} python
+    import numpy as np
+    print(np.arange(10))
+```
+
+```python
+    import numpy as np
+    print(np.arange(10))
+```
+
+&lt;!-- #endregion --&gt;
+
+### インラインとしてCodeを記述する
+
+記述方法
+```
+文章の途中でこのように`learning_rate = 0.0025`のようにcodeを記述することができる.
+```
+
+記述結果
+文章の途中でこのように`learning_rate = 0.0025`のようにcodeを記述することができる.
+
+
+
+
+
+
+## 画像を記述する
+
+
+### Localに保存されている画像を記述する
+
+記述方法
+</pre></div>
+</div>
+<figure class="align-default" id="figure-example">
+<a class="reference internal image-reference" href="../_images/r2d2.png"><img alt="../_images/r2d2.png" src="../_images/r2d2.png" style="height: 150px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">R2D2はこのような外見のロボットです</span><a class="headerlink" href="#figure-example" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+```{figure} ../src/r2d2.png
+:height: 150px
+:name: figure-example
+
+R2D2はこのような外見のロボットです
+```
+
+&lt;!-- #region --&gt;
+### Linkが分かっている画像を記述する
+
+
+記述方法
+```
+![bb8](https://static.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png)
+```
+
+記述結果
+![bb8](https://static.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png)
+&lt;!-- #endregion --&gt;
+
+## 数式を記述する
+
+
+### インラインで記述する
+
+記述方法
+```
+インラインで数式を定義する場合、$で数式を囲む
+あるzは$z=\sqrt{x^2+y^2}$のように定義される
+```
+
+記述結果
+インラインで数式を定義する場合、ドルマークで数式を囲むのみ。
+あるzは$z=\sqrt{x^2+y^2}$のように定義される
+
+
+
+
+
+### ブロックとして数式を記述する
+
+記述方法
+
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[
+z=\sqrt{x^3+y^3}
+\]</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+記述結果
+
+$$
+z=\sqrt{x^3+y^3}
+$$
+
+
+
+[数式の記述方法についてさらに知りたい人向け](https://jupyterbook.org/en/stable/content/math.html)
+</pre></div>
+</div>
+</section>
+<section id="note">
+<h3><span class="section-number">10.3.2. </span>noteを記述する<a class="headerlink" href="#note" title="Permalink to this headline">#</a></h3>
+<p>記述方法</p>
 </section>
 </section>
 </section>
