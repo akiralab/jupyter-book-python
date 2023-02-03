@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>3. pandasでEDA(1) &#8212; Python Tools Around Machine Learning</title>
+    <title>pandasでEDA(1) &#8212; Python Tools Around Machine Learning</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://akiralab.github.io/jupyter-book-python/pandas/pd_basic.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. timmとは" href="../notes/timm.html" />
-    <link rel="prev" title="2. ランダム要素を取得する" href="../numpy/np_random.html" />
+    <link rel="next" title="timmとは" href="../notes/timm.html" />
+    <link rel="prev" title="ランダム要素を取得する" href="../numpy/np_random.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,12 +109,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/np_basics.html">
-   1. numpyで配列を作成する
+   numpyで配列を作成する
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../numpy/np_random.html">
-   2. ランダム要素を取得する
+   ランダム要素を取得する
   </a>
  </li>
 </ul>
@@ -126,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   3. pandasでEDA(1)
+   pandasでEDA(1)
   </a>
  </li>
 </ul>
@@ -138,22 +138,22 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/timm.html">
-   4. timmとは
+   timmとは
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/python.html">
-   7. 文字列操作
+   文字列操作
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/salary.html">
-   8. matplotlibを用いて住民税を計算する
+   matplotlibを用いて住民税を計算する
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/jupyter_book.html">
-   10. MySTを用いてmarkdownを記述する方法
+   MySTを用いてmarkdownを記述する方法
   </a>
  </li>
 </ul>
@@ -364,29 +364,29 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandasdataframe">
-   3.1. pandasでDataFrameを作成する
+   pandasでDataFrameを作成する
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dictpandas">
-     3.1.1. Dictからpandasを作成する場合
+     Dictからpandasを作成する場合
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#load">
-     3.1.2. 既存のデータシートをloadする場合
+     既存のデータシートをloadする場合
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandasmethodchain">
-   3.2. pandasでmethodをchainする
+   pandasでmethodをchainする
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   3.3. 統計情報を取得する
+   統計情報を取得する
   </a>
  </li>
 </ul>
@@ -410,29 +410,29 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandasdataframe">
-   3.1. pandasでDataFrameを作成する
+   pandasでDataFrameを作成する
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#dictpandas">
-     3.1.1. Dictからpandasを作成する場合
+     Dictからpandasを作成する場合
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#load">
-     3.1.2. 既存のデータシートをloadする場合
+     既存のデータシートをloadする場合
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandasmethodchain">
-   3.2. pandasでmethodをchainする
+   pandasでmethodをchainする
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   3.3. 統計情報を取得する
+   統計情報を取得する
   </a>
  </li>
 </ul>
@@ -446,7 +446,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pandaseda-1">
-<h1><span class="section-number">3. </span>pandasでEDA(1)<a class="headerlink" href="#pandaseda-1" title="Permalink to this headline">#</a></h1>
+<h1>pandasでEDA(1)<a class="headerlink" href="#pandaseda-1" title="Permalink to this headline">#</a></h1>
 <p><a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">pandasのcheatsheet</a>ベースで主要なmethodをおさらいしていく</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -460,9 +460,9 @@ title="Print to PDF"
 </div>
 </div>
 <section id="pandasdataframe">
-<h2><span class="section-number">3.1. </span>pandasでDataFrameを作成する<a class="headerlink" href="#pandasdataframe" title="Permalink to this headline">#</a></h2>
+<h2>pandasでDataFrameを作成する<a class="headerlink" href="#pandasdataframe" title="Permalink to this headline">#</a></h2>
 <section id="dictpandas">
-<h3><span class="section-number">3.1.1. </span>Dictからpandasを作成する場合<a class="headerlink" href="#dictpandas" title="Permalink to this headline">#</a></h3>
+<h3>Dictからpandasを作成する場合<a class="headerlink" href="#dictpandas" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_dict</span> <span class="o">=</span> <span class="p">{</span>
@@ -619,7 +619,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="load">
-<h3><span class="section-number">3.1.2. </span>既存のデータシートをloadする場合<a class="headerlink" href="#load" title="Permalink to this headline">#</a></h3>
+<h3>既存のデータシートをloadする場合<a class="headerlink" href="#load" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>pandasで対応しているフォーマットはさまざま</p>
 <ul>
@@ -851,7 +851,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="pandasmethodchain">
-<h2><span class="section-number">3.2. </span>pandasでmethodをchainする<a class="headerlink" href="#pandasmethodchain" title="Permalink to this headline">#</a></h2>
+<h2>pandasでmethodをchainする<a class="headerlink" href="#pandasmethodchain" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>DataFrameのmethod（renameやquery,headなど）はDataFrameを返すため、複数のmethodを組み合わせることが可能</p></li>
 </ul>
@@ -1185,7 +1185,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">3.3. </span>統計情報を取得する<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>統計情報を取得する<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .describe()で全体感を把握する</span>
@@ -1367,13 +1367,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">2. </span>ランダム要素を取得する</p>
+            <p class="prev-next-title">ランダム要素を取得する</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../notes/timm.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>timmとは</p>
+        <p class="prev-next-title">timmとは</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
