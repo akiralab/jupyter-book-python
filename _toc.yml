@@ -6,17 +6,14 @@ root: intro
 
 parts:
 - caption: Numpyをちゃんと理解する
-  numbered: true
   chapters:
     - file: numpy/np_basics
     - file: numpy/np_random
 - caption: Pandasをちゃんと理解する
-  numbered: true
   chapters:
     - file: pandas/pd_basic
     
 - caption: 興味深いLibrary
-  numbered: true
   chapters:
     - file: notes/timm
     - file: notes/youtube_dl
