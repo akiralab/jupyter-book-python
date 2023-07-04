@@ -9,3 +9,9 @@ Check out the content pages bundled with this sample book to see more.
 
 ```{tableofcontents}
 ```
+
+
+- when using poetry, you need to do this.
+```
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
+```
