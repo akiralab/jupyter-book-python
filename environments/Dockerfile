@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
     PYTHONPATH=${APPLICATION_DIRECTORY}
 
 RUN apt update && apt install --no-install-recommends -y software-properties-common 
-RUN apt install nano 
+RUN apt install nano git
 RUN apt install -y python3.10
 RUN apt install -y python3-pip
 
