@@ -15,3 +15,7 @@ Check out the content pages bundled with this sample book to see more.
 ```
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 ```
+
+To publish this notebooks, 
+
+1. build 
