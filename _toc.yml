@@ -15,8 +15,8 @@ parts:
     
 - caption: 興味深いLibrary
   chapters:
+    - file: notes/coco
     - file: notes/timm
-    - file: notes/youtube_dl
     - file: notes/python
     - file: notes/salary
     - file: notes/jupyter_book.md

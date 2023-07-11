@@ -19,7 +19,10 @@ torchvision = "0.15.1"
 dash = "^2.11.1"
 altair = "^5.0.1"
 vega-datasets = "^0.9.0"
-nbformat = "4.2.0"
+nbformat = "^5.9.1"
+flake8 = ">=5.0.0"
+ghp-import = "^2.1.0"
+jupyter-book = "^0.15.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
